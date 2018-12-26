@@ -54,10 +54,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+PROMPT_COMMAND='pwd2=$(sed "s:^${HOME}:~:;s:\([^/]\)[^/]*/:\1/:g" <<<$PWD)'
+#PS1X=$(perl -pl0 -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]$pwd2\[\033[00m\] \$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u \w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u $pwd2 \$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -113,3 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+#rm ~/.bashrc
+#cp -al ~/.dotfiles/.bashrc ~

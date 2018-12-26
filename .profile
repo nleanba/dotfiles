@@ -25,3 +25,12 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+export NODEJS_HOME=/usr/local/lib/nodejs/node-v10.14.2/bin
+export PATH=$NODEJS_HOME:$PATH
+
+export WIN_HOME=/media/noam/OS/Users/noam
+export WSL_BIN=$WIN_HOME/AppData/Local/lxss/rootfs/bin
+export WSL_U_BIN=$WIN_HOME/AppData/Local/lxss/rootfs/usr/bin
+export PATH=$PATH:$WSL_U_BIN:$WSL_BIN
+
