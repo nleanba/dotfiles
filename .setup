@@ -1,0 +1,8 @@
+#!/bin/sh
+#hardlinking scripts
+
+rm ~/.bashrc 
+cp -alv ~/.dotfiles/.bashrc ~/.bashrc
+rm ~/.profile
+cp -alv ~/.dotfiles/.profile ~/.profile
+
